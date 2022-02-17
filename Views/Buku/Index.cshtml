@@ -1,0 +1,88 @@
+@model SIPERPUS.ViewModel.BukuViewModel
+@{
+    ViewData["Title"] = ViewData["title"];
+}
+
+<h3>@ViewData["title_page"]</h3>
+
+<p class="mt-3">
+    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
+</p>
+@await Html.PartialAsync("~/Views/Shared/_Alert.cshtml")
+@Html.Raw(ViewBag.Alert)
+<form asp-controller="Buku" asp-action="Index" method="get">
+    <p class="float-end">
+        Search: <input type="text" asp-for="Search" />
+        <input type="submit" value="Filter" />
+    </p>
+    <p class="float-end me-3" style="height: 30px;">
+        <select asp-for="KategoriBukuSelected" asp-items="ViewBag.kategoriBukus">
+            <option value="">Pilih Kategori</option>
+        </select>
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nama
+            </th>
+            <th>
+                Penerbit
+            </th>
+            <th>
+                Pengarang
+            </th>
+            <th>
+                Tahun
+            </th>
+            <th>
+                Kategori
+            </th>
+            <th>Rak</th>
+            <th>Stok</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int iter = 0;
+        }
+        @foreach (var item in Model.Bukus)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.penerbit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.pengarang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tahun)
+                </td>
+                <td>
+                    @Model.KategoriBukuName[iter]
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.lokasi_rak)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stok)
+                </td>
+                <td>
+                    <a asp-action="Edit" class="btn btn-sm btn-outline-primary" title="Edit" asp-route-id="@item.id"><i
+                        class="fas fa-edit"></i></a> |
+                    <a asp-action="Details" class="btn btn-sm btn-outline-primary" title="Details"
+                    asp-route-id="@item.id"><i class="fas fa-info-circle"></i></a> |
+                    <a asp-action="Delete" class="btn btn-sm btn-outline-danger" title="Delete" asp-route-id="@item.id"><i
+                        class="fas fa-trash"></i></a>
+                </td>
+            </tr>
+            iter++;
+        }
+    </tbody>
+</table>

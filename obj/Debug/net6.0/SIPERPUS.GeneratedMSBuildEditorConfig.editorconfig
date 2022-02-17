@@ -1,0 +1,128 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = SIPERPUS
+build_property.RootNamespace = SIPERPUS
+build_property.ProjectDir = E:\dotnet project\belajar\SIPERPUS\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = E:\dotnet project\belajar\SIPERPUS
+build_property._RazorSourceGeneratorDebug = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Buku/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVrdVxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Buku/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVrdVxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Buku/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVrdVxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Buku/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVrdVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Buku/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQnVrdVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Jurusan/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVydXNhblxDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Jurusan/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVydXNhblxEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Jurusan/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVydXNhblxEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Jurusan/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVydXNhblxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Jurusan/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSnVydXNhblxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/KategoriBuku/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlCdWt1XENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/KategoriBuku/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlCdWt1XERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/KategoriBuku/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlCdWt1XERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/KategoriBuku/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlCdWt1XEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/KategoriBuku/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcS2F0ZWdvcmlCdWt1XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Mahasiswa/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Mahasiswa/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Mahasiswa/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Mahasiswa/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Mahasiswa/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFoYXNpc3dhXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Shared/_Alert.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9BbGVydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/dotnet project/belajar/SIPERPUS/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-k7lcnjimou

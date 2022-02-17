@@ -1,0 +1,74 @@
+@model SIPERPUS.Models.Buku
+
+@{
+    ViewData["Title"] = ViewData["title"];
+}
+
+<h4>@ViewData["title_page"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3 row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                    <input asp-for="nama" class="form-control" />
+                    <span asp-validation-for="nama" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="penerbit" class="col-sm-2 col-form-label">Penerbit</label>
+                <div class="col-sm-10">
+                    <input asp-for="penerbit" class="form-control" />
+                    <span asp-validation-for="penerbit" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="pengarang" class="col-sm-2 col-form-label">Pengarang</label>
+                <div class="col-sm-10">
+                    <input asp-for="pengarang" class="form-control" />
+                    <span asp-validation-for="pengarang" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="tahun" class="col-sm-2 col-form-label">Tahun</label>
+                <div class="col-sm-10">
+                    <input asp-for="tahun" class="form-control" />
+                    <span asp-validation-for="tahun" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="tahun" class="col-sm-2 col-form-label">Kategori</label>
+                <div class="col-sm-10">
+                    <select asp-for="kategori" class="form-control" asp-items="@ViewBag.kategoriBukus">
+                        <option value="">Pilih Kategori</option>
+                    </select>
+                    <span asp-validation-for="kategori" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="lokasi_rak" class="col-sm-2 col-form-label">Rak</label>
+                <div class="col-sm-10">
+                    <input asp-for="lokasi_rak" class="form-control" />
+                    <span asp-validation-for="lokasi_rak" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="stok" class="col-sm-2 col-form-label">Stok</label>
+                <div class="col-sm-10">
+                    <input asp-for="stok" class="form-control" />
+                    <span asp-validation-for="stok" class="text-danger"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-end"><i class="fas fa-save"></i> Save</button>
+            <a asp-action="Index" class="btn btn-secondary float-end me-2"><i class="fas fa-long-arrow-alt-left"></i>
+                Back</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

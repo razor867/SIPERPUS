@@ -1,0 +1,53 @@
+@model SIPERPUS.Models.Mahasiswa
+
+@{
+    ViewData["Title"] = ViewData["title"];
+}
+
+<h4>@ViewData["title_page"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3 row">
+                <label for="nama" class="col-sm-2 col-form-label">Nama</label>
+                <div class="col-sm-10">
+                    <input asp-for="nama" class="form-control" />
+                    <span asp-validation-for="nama" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="jurusan" class="col-sm-2 col-form-label">Jurusan</label>
+                <div class="col-sm-10">
+                    <select asp-for="jurusan" class="form-control" asp-items="@ViewBag.jurusans">
+                        <option value="">Pilih Jurusan</option>
+                    </select>
+                    <span asp-validation-for="jurusan" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="npm" class="col-sm-2 col-form-label">NPM</label>
+                <div class="col-sm-10">
+                    <input asp-for="npm" class="form-control" maxlength="13" />
+                    <span asp-validation-for="npm" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+                <div class="col-sm-10">
+                    <textarea asp-for="alamat" class="form-control" cols="30" rows="4"></textarea>
+                    <span asp-validation-for="alamat" class="text-danger"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-end"><i class="fas fa-save"></i> Save</button>
+            <a asp-action="Index" class="btn btn-secondary float-end me-2"><i class="fas fa-long-arrow-alt-left"></i>
+                Back</a>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
