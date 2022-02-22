@@ -16318,6 +16318,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Peminjaman\\Edit.cshtml",
+      "TargetPath": "Views\\Peminjaman\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Buku\\Index.cshtml",
       "TargetPath": "Views\\Buku\\Index.cshtml",
       "FileKind": "mvc"
@@ -16345,6 +16350,11 @@
     {
       "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Shared\\_Alert.cshtml",
       "TargetPath": "Views\\Shared\\_Alert.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Peminjaman\\Delete.cshtml",
+      "TargetPath": "Views\\Peminjaman\\Delete.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16383,6 +16393,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Peminjaman\\Details.cshtml",
+      "TargetPath": "Views\\Peminjaman\\Details.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Buku\\Create.cshtml",
       "TargetPath": "Views\\Buku\\Create.cshtml",
       "FileKind": "mvc"
@@ -16390,6 +16405,11 @@
     {
       "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\KategoriBuku\\Create.cshtml",
       "TargetPath": "Views\\KategoriBuku\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Peminjaman\\Create.cshtml",
+      "TargetPath": "Views\\Peminjaman\\Create.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -16420,6 +16440,11 @@
     {
       "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Buku\\Edit.cshtml",
       "TargetPath": "Views\\Buku\\Edit.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "e:\\dotnet project\\belajar\\SIPERPUS\\Views\\Peminjaman\\Index.cshtml",
+      "TargetPath": "Views\\Peminjaman\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

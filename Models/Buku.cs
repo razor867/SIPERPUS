@@ -28,5 +28,6 @@ namespace SIPERPUS.Models
         public string? updated_by { get; set; }
 
         public virtual KategoriBuku? KategoriBuku { get; set; }
+        public virtual ICollection<Peminjaman>? Peminjaman { get; set; }
     }
 }

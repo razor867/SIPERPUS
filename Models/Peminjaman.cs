@@ -4,24 +4,26 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SIPERPUS.Models
 {
-    public class Mahasiswa
+    public class Peminjaman
     {
         public int id { get; set; }
         [Required]
-        public string? nama { get; set; }
+        public int idbuku { get; set; }
         [Required]
-        public int jurusan { get; set; }
+        public int idmahasiswa { get; set; }
         [Required]
-        public long npm { get; set; }
+        public DateTime tgl_pinjam { get; set; }
         [Required]
-        public string? alamat { get; set; }
+        public DateTime tgl_pulang { get; set; }
+        [Required]
+        public int qty { get; set; }
         public int status_data { get; set; }
         public DateTime created_at { get; set; }
         public string? created_by { get; set; }
         public DateTime updated_at { get; set; }
         public string? updated_by { get; set; }
 
-        public virtual Jurusan? Jurusan { get; set; }
-        public virtual ICollection<Peminjaman>? Peminjaman { get; set; }
+        public virtual Buku? Buku { get; set; }
+        public virtual Mahasiswa? Mahasiswa { get; set; }
     }
 }
