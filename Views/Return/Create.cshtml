@@ -1,0 +1,73 @@
+@model SIPERPUS.Models.Peminjaman
+
+@{
+    ViewData["Title"] = ViewData["title"];
+}
+
+<h4>@ViewData["title_page"]</h4>
+<hr />
+<div class="row">
+    <div class="col-md-6">
+        <h5>Detail Peminjaman</h5>
+        <table class="table table-bordered" style="width: 100%;">
+            <tr>
+                <td class="bg-secondary" style="color:#fff; width: 20%;">Mahasiswa</td>
+                <td>@ViewData["mahasiswa_name"]</td>
+            </tr>
+            <tr>
+                <td class="bg-secondary" style="color:#fff; width: 20%;">Buku</td>
+                <td>@ViewData["buku_name"]</td>
+            </tr>
+            <tr>
+                <td class="bg-secondary" style="color:#fff; width: 20%;">Tgl Pinjam</td>
+                <td>@Model.tgl_pinjam.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))</td>
+            </tr>
+            <tr>
+                <td class="bg-secondary" style="color:#fff; width: 20%;">Tgl Pulang</td>
+                <td>@Model.tgl_pulang.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))</td>
+            </tr>
+            <tr>
+                <td class="bg-secondary" style="color:#fff; width: 20%;">Qty</td>
+                <td>@Html.DisplayFor(model => model.qty)</td>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h5>Form Return</h5>
+        <form asp-action="Return">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3 row">
+                <label for="tgl_dikembalikan" class="col-sm-4 col-form-label">Tgl Dikembalikan</label>
+                <div class="col-sm-8">
+                    <input asp-for="tgl_dikembalikan" type="date" class="form-control" />
+                    <span asp-validation-for="tgl_dikembalikan" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="denda" class="col-sm-4 col-form-label">Denda</label>
+                <div class="col-sm-8">
+                    <input asp-for="denda" class="form-control" />
+                    <span asp-validation-for="denda" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="ket" class="col-sm-4 col-form-label">Keterangan</label>
+                <div class="col-sm-8">
+                    <textarea asp-for="ket" class="form-control" cols="30" rows="4"></textarea>
+                    <span asp-validation-for="ket" class="text-danger"></span>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary float-end"><i class="fas fa-save"></i> Save</button>
+            <a asp-action="Index" class="btn btn-secondary float-end me-2"><i class="fas fa-long-arrow-alt-left"></i>
+                Back</a>
+        </form>
+    </div>
+</div>
+<br>
+@await Html.PartialAsync("~/Views/Shared/_Alert.cshtml")
+@Html.Raw(ViewBag.Alert)
+
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

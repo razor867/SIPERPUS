@@ -22,7 +22,7 @@ namespace SIPERPUS.Controllers
         public async Task<IActionResult> index()
         {
             var query = from m in _context.Peminjaman.Include(x => x.Buku).Include(x => x.Mahasiswa)
-                        where m.status_data == 1
+                        where m.status_data == 1 && m.status_kembali == 0
                         select m;
 
             var peminjamanVM = new PeminjamanViewModel
@@ -110,6 +110,10 @@ namespace SIPERPUS.Controllers
                 if (await _context.SaveChangesAsync() > 0)
                 {
                     peminjaman.status_data = 1;
+                    peminjaman.status_kembali = 0;
+                    peminjaman.tgl_dikembalikan = null;
+                    peminjaman.denda = 0;
+                    peminjaman.ket = null;
                     peminjaman.created_by = "Wahyu";
                     peminjaman.created_at = CommonMethod.JakartaTimeZone(DateTime.Now);
                     peminjaman.updated_by = "Wahyu";
@@ -231,9 +235,10 @@ namespace SIPERPUS.Controllers
                             buku.stok = buku.stok - peminjaman.qty;
                             _context.Update(buku);
                         }
-                        
+
                     }
-                } else
+                }
+                else
                 {
                     int selisihQty = peminjaman.qty > dataPeminjaman.qty ? peminjaman.qty - dataPeminjaman.qty : dataPeminjaman.qty - peminjaman.qty;
                     if (selisihQty > buku.stok)
@@ -328,6 +333,73 @@ namespace SIPERPUS.Controllers
         private bool PeminjamanExist(int id)
         {
             return _context.Peminjaman.Any(e => e.id == id);
+        }
+        public IActionResult Return(int id)
+        {
+            var peminjaman = _context.Peminjaman.Include(x => x.Buku).Include(x => x.Mahasiswa)
+                .FirstOrDefault(m => m.id == id);
+            ViewData["title"] = "Return Peminjaman";
+            ViewData["title_page"] = "Return Peminjaman";
+            ViewData["buku_name"] = peminjaman.Buku.nama;
+            ViewData["mahasiswa_name"] = peminjaman.Mahasiswa.nama;
+
+            return View("/Views/Return/Create.cshtml", peminjaman);
+        }
+        [HttpPost, ActionName("Return")]
+        public async Task<IActionResult> Return(int id, [Bind("id,tgl_dikembalikan,denda,ket")] Peminjaman peminjaman)
+        {
+            var dataPeminjaman = await _context.Peminjaman.Include(x => x.Buku).Include(x => x.Mahasiswa)
+                .FirstOrDefaultAsync(m => m.id == id);
+            bool err = false;
+            bool end = false;
+
+            do
+            {
+                if (id != peminjaman.id)
+                {
+                    TempData["alert"] = CommonMethod.Alert("fail", "Terjadi kesalahan tidak dapat memproses data!");
+                    err = true;
+                    break;
+                }
+                if (!ModelState.IsValid)
+                {
+                    TempData["alert"] = CommonMethod.Alert("fail", "Terjadi kesalahan tidak dapat memproses data!");
+                    err = true;
+                    break;
+                }
+                if (peminjaman.tgl_dikembalikan == null)
+                {
+                    TempData["alert"] = CommonMethod.Alert("fail", "Tanggal dikembalikan wajib diisi!");
+                    err = true;
+                    break;
+                }
+                end = true;
+            } while (!end);
+
+            if (!err)
+            {
+                dataPeminjaman.status_kembali = 1;
+                dataPeminjaman.tgl_dikembalikan = peminjaman.tgl_dikembalikan;
+                dataPeminjaman.denda = peminjaman.denda != null ? peminjaman.denda : 0;
+                dataPeminjaman.ket = peminjaman.ket != null ? peminjaman.ket : null;
+                dataPeminjaman.updated_by = "Wahyu";
+                dataPeminjaman.updated_at = CommonMethod.JakartaTimeZone(DateTime.Now);
+
+                _context.Update(dataPeminjaman);
+                await _context.SaveChangesAsync();
+                TempData["alert"] = CommonMethod.Alert("success", "Berhasil mengembalikan buku");
+            }
+            else
+            {
+                ViewData["title"] = "Return Peminjaman";
+                ViewData["title_page"] = "Return Peminjaman";
+                ViewData["buku_name"] = dataPeminjaman.Buku.nama;
+                ViewData["mahasiswa_name"] = dataPeminjaman.Mahasiswa.nama;
+                ViewBag.Alert = TempData["alert"] != null ? TempData["alert"] : "";
+            }
+
+            return err ? View("/Views/Return/Create.cshtml", dataPeminjaman) : RedirectToAction("Index", "Pengembalian");
+
         }
     }
 }

@@ -18,6 +18,10 @@ namespace SIPERPUS.Models
         [Required]
         public int qty { get; set; }
         public int status_data { get; set; }
+        public int status_kembali { get; set; }
+        public DateTime? tgl_dikembalikan { get; set; }
+        public int denda { get; set; }
+        public string? ket { get; set; }
         public DateTime created_at { get; set; }
         public string? created_by { get; set; }
         public DateTime updated_at { get; set; }
