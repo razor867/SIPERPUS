@@ -1,16 +1,13 @@
-@model SIPERPUS.ViewModel.PeminjamanViewModel
+@model SIPERPUS.ViewModel.PengembalianViewModel
 @{
     ViewData["Title"] = ViewData["title"];
 }
 
 <h3>@ViewData["title_page"]</h3>
 
-<p class="mt-3">
-    <a asp-action="Create" class="btn btn-primary"><i class="fas fa-plus"></i> Add</a>
-</p>
 @await Html.PartialAsync("~/Views/Shared/_Alert.cshtml")
 @Html.Raw(ViewBag.Alert)
-<form asp-controller="Peminjaman" asp-action="Index" method="get">
+<form asp-controller="Pengembalian" asp-action="Index" method="get">
     <p class="float-end">
         Search: <input type="text" asp-for="Search" />
         <input type="submit" value="Filter" />
@@ -27,13 +24,16 @@
                 Buku
             </th>
             <th>
-                Tgl Pinjam
-            </th>
-            <th>
-                Tgl Pulang
-            </th>
-            <th>
                 Qty
+            </th>
+            <th>
+                Tgl Dikembalikan
+            </th>
+            <th>
+                Denda
+            </th>
+            <th>
+                Ket
             </th>
             <th></th>
         </tr>
@@ -42,7 +42,7 @@
         @{
             int iter = 0;
         }
-        @foreach (var item in Model.Peminjamans)
+        @foreach (var item in Model.Pengembalians)
         {
             <tr>
                 <td>
@@ -52,17 +52,19 @@
                     @Model.BukuName[iter]
                 </td>
                 <td>
-                    @item.tgl_pinjam.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))
-                </td>
-                <td>
-                    @item.tgl_pulang.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))
-                </td>
-                <td>
                     @Html.DisplayFor(modelItem => item.qty)
                 </td>
                 <td>
-                    <a asp-action="Edit" class="btn btn-sm btn-outline-primary" title="Edit" asp-route-id="@item.id"><i
-                        class="fas fa-edit"></i></a> |
+                    @item.tgl_dikembalikan.Value.ToString("dd MMMM yyyy", new System.Globalization.CultureInfo("id-ID"))
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.denda)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ket)
+                </td>
+
+                <td>
                     <a asp-action="Details" class="btn btn-sm btn-outline-primary" title="Details"
                     asp-route-id="@item.id"><i class="fas fa-info-circle"></i></a> |
                     <a asp-action="Delete" class="btn btn-sm btn-outline-danger" title="Delete" asp-route-id="@item.id"><i

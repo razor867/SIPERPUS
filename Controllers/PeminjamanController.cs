@@ -19,11 +19,16 @@ namespace SIPERPUS.Controllers
             _context = context;
         }
 
-        public async Task<IActionResult> index()
+        public async Task<IActionResult> index(string Search)
         {
             var query = from m in _context.Peminjaman.Include(x => x.Buku).Include(x => x.Mahasiswa)
                         where m.status_data == 1 && m.status_kembali == 0
                         select m;
+
+            if (!String.IsNullOrEmpty(Search))
+            {
+                query = query.Where(x => x.Buku.nama.Contains(Search) || x.Mahasiswa.nama.Contains(Search)).AsQueryable();
+            }
 
             var peminjamanVM = new PeminjamanViewModel
             {

@@ -1,0 +1,46 @@
+@model SIPERPUS.Models.Peminjaman
+
+@{
+    ViewData["Title"] = ViewData["title"];
+}
+
+<h3>@ViewData["title_page"]</h3>
+
+<div>
+    <hr />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-bordered" style="width: 50%;">
+                <tr>
+                    <td class="bg-secondary" style="color:#fff; width: 25%;">Mahasiswa</td>
+                    <td>@ViewData["mahasiswa_name"]</td>
+                </tr>
+                <tr>
+                    <td class="bg-secondary" style="color:#fff; width: 25%;">Buku</td>
+                    <td>@ViewData["buku_name"]</td>
+                </tr>
+                <tr>
+                    <td class="bg-secondary" style="color:#fff; width: 25%;">Qty</td>
+                    <td>@Html.DisplayFor(model => model.qty)</td>
+                </tr>
+                <tr>
+                    <td class="bg-secondary" style="color:#fff; width: 25%;">Tgl Dikembalikan</td>
+                    <td>@Model.tgl_dikembalikan.Value.ToString("dd MMMM yyyy", new
+                        System.Globalization.CultureInfo("id-ID"))</td>
+                </tr>
+                <tr>
+                    <td class="bg-secondary" style="color:#fff; width: 25%;">Denda</td>
+                    <td>@Html.DisplayFor(model => model.denda)</td>
+                </tr>
+                <tr>
+                    <td class="bg-secondary" style="color:#fff; width: 25%;">Ket</td>
+                    <td>@Html.DisplayFor(model => model.ket)</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="mt-2" style="width: 50%;">
+    <a asp-action="Index" class="btn btn-secondary float-end"><i class="fas fa-long-arrow-alt-left"></i>
+        Back</a>
+</div>

@@ -5,9 +5,9 @@ using SIPERPUS.Models;
 
 namespace SIPERPUS.ViewModel
 {
-    public class PeminjamanViewModel
+    public class PengembalianViewModel
     {
-        public List<Peminjaman>? Peminjamans { get; set; }
+        public List<Peminjaman>? Pengembalians { get; set; }
         public List<string>? BukuName { get; set; }
         public List<string>? MahasiswaName { get; set; }
         public string? Search { get; set; }
