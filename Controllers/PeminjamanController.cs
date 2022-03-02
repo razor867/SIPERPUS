@@ -91,22 +91,37 @@ namespace SIPERPUS.Controllers
         public async Task<IActionResult> Create([Bind("id,idbuku,idmahasiswa,tgl_pinjam,tgl_pulang,qty")] Peminjaman peminjaman)
         {
             var buku = await _context.Buku.FindAsync(peminjaman.idbuku);
+            var hasPeminjaman = await _context.Peminjaman.FirstOrDefaultAsync(x => x.idmahasiswa == peminjaman.idmahasiswa && x.status_kembali == 0);
             bool err = false;
+            bool end = false;
 
-            if (!ModelState.IsValid)
+            do
             {
-                err = true;
-            }
-            if (peminjaman.qty > buku.stok)
-            {
-                TempData["alert"] = CommonMethod.Alert("fail", "Stok buku tidak mencukupi!");
-                err = true;
-            }
-            if (peminjaman.tgl_pulang <= peminjaman.tgl_pinjam)
-            {
-                TempData["alert"] = CommonMethod.Alert("fail", "Tanggal pulang harus lebih dari tanggal pinjam!");
-                err = true;
-            }
+                if (!ModelState.IsValid)
+                {
+                    err = true;
+                    break;
+                }
+                if (hasPeminjaman != null)
+                {
+                    err = true;
+                    TempData["alert"] = CommonMethod.Alert("fail", "Pengajuan peminjaman dibatalkan karena karena data peminjaman sudah ada dan peminjaman buku ini belum dikembalikan!");
+                    break;
+                }
+                if (peminjaman.qty > buku.stok)
+                {
+                    TempData["alert"] = CommonMethod.Alert("fail", "Stok buku tidak mencukupi!");
+                    err = true;
+                    break;
+                }
+                if (peminjaman.tgl_pulang <= peminjaman.tgl_pinjam)
+                {
+                    TempData["alert"] = CommonMethod.Alert("fail", "Tanggal pulang harus lebih dari tanggal pinjam!");
+                    err = true;
+                    break;
+                }
+                end = true;
+            } while(!end);
 
             if (!err)
             {
