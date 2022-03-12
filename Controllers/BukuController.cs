@@ -33,7 +33,7 @@ namespace SIPERPUS.Controllers
                         select m;
             if (!String.IsNullOrEmpty(Search))
             {
-                query = query.Where(x => x.nama.Contains(Search) || x.pengarang.Contains(Search)).AsQueryable();
+                query = query.Where(x => x.nama.Contains(Search) || x.pengarang.Contains(Search) || x.penerbit.Contains(Search)).AsQueryable();
             }
             if (KategoriBukuSelected > 0)
             {

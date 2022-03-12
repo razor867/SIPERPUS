@@ -20,6 +20,7 @@ namespace SIPERPUS.Models
         public int status_data { get; set; }
         public int status_kembali { get; set; }
         public DateTime? tgl_dikembalikan { get; set; }
+        [DataType(DataType.Currency)]
         public int denda { get; set; }
         public string? ket { get; set; }
         public DateTime created_at { get; set; }
